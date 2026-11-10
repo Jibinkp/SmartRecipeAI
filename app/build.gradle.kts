@@ -21,7 +21,7 @@ android {
         buildConfigField(
             "String",
             "GEMINI_API_KEY",
-            "\"YOUR_API_KEY\""
+            "\"\""
         )
     }
 
@@ -80,4 +80,5 @@ dependencies {
 
     // Image loading
     implementation("io.coil-kt:coil-compose:2.7.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 }
