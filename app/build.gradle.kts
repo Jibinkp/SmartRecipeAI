@@ -17,6 +17,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField(
+            "String",
+            "GEMINI_API_KEY",
+            "\"YOUR_API_KEY\""
+        )
     }
 
     buildTypes {
@@ -32,6 +38,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -56,4 +63,21 @@ dependencies {
     implementation("androidx.compose.material:material-icons-core")
     // Optional: Add this line if you are using advanced or less common icons
     implementation("androidx.compose.material:material-icons-extended")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
+
+    // TensorFlow Lite
+    implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.15.0")
+
+    // Image loading
+    implementation("io.coil-kt:coil-compose:2.7.0")
 }

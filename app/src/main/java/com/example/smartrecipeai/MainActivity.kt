@@ -32,6 +32,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.smartrecipeai.ui.screen.HomeScreen
+import com.example.smartrecipeai.viewmodel.RecipeViewModel
+import com.example.smartrecipeai.viewmodel.RecipeViewModelFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,8 +43,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MaterialTheme {
+                val factory = RecipeViewModelFactory(application)
+
+                val vm: RecipeViewModel = viewModel(
+                    factory = factory
+                )
+
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    RecipeScreen(innerPadding)
+                    HomeScreen(innerPadding,vm)
                 }
             }
         }
